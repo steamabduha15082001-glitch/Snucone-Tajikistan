@@ -5,8 +5,8 @@ import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, MapPin, Menu, 
 import './styles.css'
 
 const products = [
-  { id: 'af1', name: 'AF+I', eyebrow: 'ADVANCED FIXTURE I', title: 'Уверенность\nв каждом шаге.', desc: 'Имплантат SNUCOne AF+I. Подробности о размерах и доступности уточняйте у Dental Market.', specs: ['Диаметры 3,5–6,8 мм', 'Длины 7–20 мм', 'Производство: Южная Корея'], tag: 'SNUCOne AF+I', image: '/af-plus-i.png' },
-  { id: 'af2', name: 'AF+II', eyebrow: 'ADVANCED FIXTURE II', title: 'Точность\nдля сложных задач.', desc: 'Имплантат SNUCOne AF+II. Подробности о размерах и доступности уточняйте у Dental Market.', specs: ['Диаметры 3,5–6,8 мм', 'Длины 7–20 мм', 'Производство: Южная Корея'], tag: 'SNUCOne AF+II', image: '/af-plus-ii.png' },
+  { id: 'af1', name: 'AF+I', eyebrow: 'ADVANCED FIXTURE I', title: 'Уверенность\nв каждом шаге.', desc: 'SNUCOne AF+I: линейка размеров для разных клинических задач. Наличие и подбор уточняйте у Dental Market.', specs: ['Диаметры 3,5–6,8 мм', 'Длины 7–20 мм', 'Производство: Южная Корея'], tag: 'SNUCOne AF+I', image: '/af-plus-i.png' },
+  { id: 'af2', name: 'AF+II', eyebrow: 'ADVANCED FIXTURE II', title: 'Точность\nдля сложных задач.', desc: 'SNUCOne AF+II — имплантат погружного типа для плотной кости D1 и кости средней плотности D2.', specs: ['Диаметры 3,5–4,8 мм', 'Длины 7–20 мм', 'Внутренний шестигранник · конус Морзе 11°'], tag: 'SNUCOne AF+II', image: '/af-plus-ii.png' },
   { id: 'ortho', name: 'Компоненты', eyebrow: 'PROSTHETIC SOLUTIONS', title: 'Единая система.\nБольше свободы.', desc: 'Ортопедические компоненты, формирователи десны и решения для гибкой работы с системой Snucone.', specs: ['Формирователи десны', 'Трансферы и аналоги', 'Ортопедический набор'], tag: 'Ортопедическая линейка' },
 ]
 
@@ -52,6 +52,10 @@ function App() {
     if (category && select) select.value = category
     document.querySelector('#request')?.scrollIntoView({ behavior: 'smooth' })
   }
+  const goToProduct = (id: string) => {
+    setActive(id)
+    document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return <>
     <header className="nav-shell">
@@ -81,7 +85,7 @@ function App() {
             <div className="art-label art-label-top"><span>01 / ENGINEERED FOR LIFE</span><MoveUpRight size={14}/></div>
             <img className="hero-product-image" src="/af-plus-i.png" alt="Имплантат SNUCOne AF+I" />
             <div className="art-caption"><span className="caption-rule"/><div><strong>SNUCOne AF+I</strong><small>Precision. Stability. Confidence.</small></div></div>
-            <div className="art-index">SNUCONE <span>·</span> 2025</div>
+            <div className="art-index">SNUCONE <span>·</span> 2026</div>
           </motion.div>
         </div>
         <div className="hero-bottom container"><span>01 — 04</span><span className="hero-scroll">ЛИСТАЙТЕ ДАЛЬШЕ <ArrowDown size={13}/></span><span>ДУШАНБЕ, TJ</span></div>
@@ -89,12 +93,17 @@ function App() {
 
       <section id="about" className="section about-section">
         <div className="container">
-          <div className="section-heading reveal"><div><div className="eyebrow eyebrow-light">01 <span className="eyebrow-line"/> О СИСТЕМЕ</div><h2>Технологии, которым<br/>можно <span>доверять.</span></h2></div><p>Инженерная точность Южной Кореи. Клиническая уверенность в вашей практике.</p></div>
+          <div className="section-heading reveal"><div><div className="eyebrow eyebrow-light">01 <span className="eyebrow-line"/> О СИСТЕМЕ</div><h2>Импланты Snucone.<br/><span>Точность в деталях.</span></h2></div><p>Корейская имплантологическая система: модели SNUCOne AF+I и AF+II, а также совместимые ортопедические компоненты.</p></div>
           <div className="bento-grid">
             <article className="bento-card card-surface reveal"><div className="card-topline"><span>01 / SURFACE</span><Sparkles size={17}/></div><div className="surface-art"><div className="surface-orb"/><div className="surface-ring ring-a"/><div className="surface-ring ring-b"/><span className="surface-label">SLA</span></div><div className="card-copy"><h3>Поверхность<br/>с характером.</h3><p>SLA обработка помогает создать благоприятные условия для контакта с костной тканью.</p></div></article>
             <article className="bento-card card-stability reveal"><div className="card-topline"><span>02 / STABILITY</span><span className="micro-pill">DESIGNED TO PERFORM</span></div><div className="stability-visual"><div className="pulse-ring p1"/><div className="pulse-ring p2"/><div className="stability-core"><ShieldCheck size={32}/></div></div><div className="card-copy"><h3>Стабильность<br/>с самого начала.</h3><p>Геометрия имплантата разработана для уверенной первичной стабильности.</p></div></article>
             <article className="bento-card card-protocol reveal"><div className="card-topline"><span>03 / PROTOCOL</span><ArrowUpRight size={16}/></div><div className="protocol-visual"><div className="protocol-line"/><div className="protocol-nodes"><span>01</span><span>02</span><span>03</span><span>04</span></div><div className="protocol-labels"><span>IMPLANT</span><span>ABUTMENT</span><span>RESTORATION</span></div></div><div className="card-copy"><h3>Продумано<br/>до последнего шага.</h3><p>Ортопедический протокол и компоненты для гибкой работы врача.</p></div></article>
           </div>
+          <div className="implant-profiles">
+            <article className="implant-profile reveal"><div className="profile-art"><img src="/af-plus-i.png" alt="Имплантат SNUCOne AF+I" /></div><div className="profile-copy"><div className="product-overline">SNUCONE / AF+I</div><h3>Для мягкой кости верхней челюсти</h3><p>Конструкция разработана с учетом первичной стабильности в мягкой кости верхней челюсти.</p><ul><li>Диаметры 3,5–6,8 мм</li><li>Длины 7–20 мм</li></ul><button className="profile-link" onClick={() => goToProduct('af1')}>Характеристики AF+I <ArrowRight size={15}/></button></div></article>
+            <article className="implant-profile reveal"><div className="profile-art"><img src="/af-plus-ii.png" alt="Имплантат SNUCOne AF+II" /></div><div className="profile-copy"><div className="product-overline">SNUCONE / AF+II</div><h3>Для плотной кости D1 и D2</h3><p>Погружной имплантат с внутренним шестигранником и конусом Морзе 11°.</p><ul><li>Диаметры 3,5–4,8 мм</li><li>Длины 7–20 мм</li></ul><button className="profile-link" onClick={() => goToProduct('af2')}>Характеристики AF+II <ArrowRight size={15}/></button></div></article>
+          </div>
+          <p className="implant-profile-note">Подбор модели и размера проводит врач с учетом клинической ситуации и инструкции производителя.</p>
           <div className="about-foot"><span>MADE IN KOREA <span className="foot-dot"/> BUILT FOR CLINICAL CONFIDENCE</span><span>Система Snucone — ваш надежный инструмент</span></div>
         </div>
       </section>
@@ -126,7 +135,7 @@ function App() {
         </div>
       </section>
     </main>
-    <footer className="footer"><div className="container"><div className="footer-main"><div className="footer-brand"><a href="#top" className="brand"><img src="/snuc_logo.png" alt="Snucone" /><span className="brand-divider"/><span className="brand-caption">ОФИЦИАЛЬНЫЙ<br/>ДИСТРИБЬЮТОР</span></a><p>Корейские технологии.<br/>Поддержка рядом.</p></div><div className="footer-col"><span className="footer-label">АДРЕС</span><p><MapPin size={14}/> г. Душанбе, пр. Рудаки, 70</p><a href="https://maps.google.com/?q=Rudaki+Avenue+70+Dushanbe" target="_blank" rel="noreferrer">Открыть на карте <ArrowUpRight size={13}/></a></div><div className="footer-col"><span className="footer-label">СВЯЗЬ</span><a href="tel:+992000000000"><Phone size={14}/> +992 00 000 00 00</a><a href="mailto:info@dentalmarket.tj">info@dentalmarket.tj <ArrowUpRight size={13}/></a><a href="https://wa.me/992000000000" target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={13}/></a></div><div className="footer-col footer-nav"><span className="footer-label">НАВИГАЦИЯ</span><a href="#about">О системе</a><a href="#products">Продукция</a><a href="#support">Поддержка врачей</a></div></div><div className="footer-bottom"><span>© 2025 DENTAL MARKET · ТАДЖИКИСТАН</span><span>ОФИЦИАЛЬНЫЙ ДИСТРИБЬЮТОР SNUCONE</span><a href="#top">НАВЕРХ ↑</a></div></div></footer>
+    <footer className="footer"><div className="container"><div className="footer-main"><div className="footer-brand"><a href="#top" className="brand"><img src="/snuc_logo.png" alt="Snucone" /><span className="brand-divider"/><span className="brand-caption">ОФИЦИАЛЬНЫЙ<br/>ДИСТРИБЬЮТОР</span></a><p>Корейские технологии.<br/>Поддержка рядом.</p></div><div className="footer-col"><span className="footer-label">АДРЕС</span><p><MapPin size={14}/> г. Душанбе, пр. Рудаки, 70</p><a href="https://maps.google.com/?q=Rudaki+Avenue+70+Dushanbe" target="_blank" rel="noreferrer">Открыть на карте <ArrowUpRight size={13}/></a></div><div className="footer-col"><span className="footer-label">СВЯЗЬ</span><a href="tel:+992000000000"><Phone size={14}/> +992 00 000 00 00</a><a href="mailto:info@dentalmarket.tj">info@dentalmarket.tj <ArrowUpRight size={13}/></a><a href="https://wa.me/992000000000" target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={13}/></a></div><div className="footer-col footer-nav"><span className="footer-label">НАВИГАЦИЯ</span><a href="#about">О системе</a><a href="#products">Продукция</a><a href="#support">Поддержка врачей</a></div></div><div className="footer-bottom"><span>© 2026 DENTAL MARKET · ТАДЖИКИСТАН</span><span>ОФИЦИАЛЬНЫЙ ДИСТРИБЬЮТОР SNUCONE</span><a href="#top">НАВЕРХ ↑</a></div></div></footer>
   </>
 }
 
