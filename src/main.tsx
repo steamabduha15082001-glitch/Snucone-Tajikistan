@@ -5,8 +5,8 @@ import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, MapPin, Menu, 
 import './styles.css'
 
 const products = [
-  { id: 'af', name: 'AF+', eyebrow: 'ADVANCED FIXTURE', title: 'Уверенность\nв каждом шаге.', desc: 'Универсальная имплантационная система для предсказуемого результата и широкого спектра клинических решений.', specs: ['SLA поверхность', 'Коническое соединение', 'Широкий выбор платформ'], tag: 'Универсальная система' },
-  { id: 'ef', name: 'EF+', eyebrow: 'EASY FIXTURE', title: 'Точность\nбез компромиссов.', desc: 'Продуманная геометрия и надежное соединение для стабильной работы в повседневной практике.', specs: ['Обработка SLA', 'Оптимизированная резьба', 'Ортопедическая совместимость'], tag: 'Для точной работы' },
+  { id: 'af1', name: 'AF+I', eyebrow: 'ADVANCED FIXTURE I', title: 'Уверенность\nв каждом шаге.', desc: 'Имплантат SNUCOne AF+I. Подробности о размерах и доступности уточняйте у Dental Market.', specs: ['Диаметры 3,5–6,8 мм', 'Длины 7–20 мм', 'Производство: Южная Корея'], tag: 'SNUCOne AF+I', image: '/af-plus-i.png' },
+  { id: 'af2', name: 'AF+II', eyebrow: 'ADVANCED FIXTURE II', title: 'Точность\nдля сложных задач.', desc: 'Имплантат SNUCOne AF+II. Подробности о размерах и доступности уточняйте у Dental Market.', specs: ['Диаметры 3,5–6,8 мм', 'Длины 7–20 мм', 'Производство: Южная Корея'], tag: 'SNUCOne AF+II', image: '/af-plus-ii.png' },
   { id: 'ortho', name: 'Компоненты', eyebrow: 'PROSTHETIC SOLUTIONS', title: 'Единая система.\nБольше свободы.', desc: 'Ортопедические компоненты, формирователи десны и решения для гибкой работы с системой Snucone.', specs: ['Формирователи десны', 'Трансферы и аналоги', 'Ортопедический набор'], tag: 'Ортопедическая линейка' },
 ]
 
@@ -26,7 +26,7 @@ function Implant({ small = false }: { small?: boolean }) {
 }
 
 function App() {
-  const [active, setActive] = useState('af')
+  const [active, setActive] = useState('af1')
   const [menuOpen, setMenuOpen] = useState(false)
   const [sent, setSent] = useState(false)
   const [formError, setFormError] = useState('')
@@ -67,6 +67,7 @@ function App() {
 
     <main id="top">
       <section className="hero">
+        <video className="hero-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/snucone-hero.mp4" type="video/mp4" /></video>
         <div className="hero-grid" />
         <div className="hero-inner container">
           <motion.div className="hero-copy" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75 }}>
@@ -78,8 +79,8 @@ function App() {
           </motion.div>
           <motion.div className="hero-art" initial={{ opacity: 0, scale: .92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: .1 }}>
             <div className="art-label art-label-top"><span>01 / ENGINEERED FOR LIFE</span><MoveUpRight size={14}/></div>
-            <Implant />
-            <div className="art-caption"><span className="caption-rule"/><div><strong>AF+ Implant System</strong><small>Precision. Stability. Confidence.</small></div></div>
+            <img className="hero-product-image" src="/af-plus-i.png" alt="Имплантат SNUCOne AF+I" />
+            <div className="art-caption"><span className="caption-rule"/><div><strong>SNUCOne AF+I</strong><small>Precision. Stability. Confidence.</small></div></div>
             <div className="art-index">SNUCONE <span>·</span> 2025</div>
           </motion.div>
         </div>
@@ -107,7 +108,7 @@ function App() {
               <div className="catalog-note"><span className="live-dot"/> Полный каталог и консультация — по запросу</div>
             </div>
             <AnimatePresence mode="wait"><motion.article key={product.id} className="product-card" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: .3 }}>
-              <div className="product-card-art"><div className="product-art-grid"/><div className="product-tag">{product.eyebrow}</div>{active === 'ortho' ? <div className="ortho-visual"><div className="ortho-piece piece-one"/><div className="ortho-piece piece-two"/><div className="ortho-piece piece-three"/></div> : <Implant small/>}<div className="product-art-footer"><span>SNUCONE / {product.name}</span><span>PRECISE BY DESIGN</span></div></div>
+              <div className="product-card-art"><div className="product-art-grid"/><div className="product-tag">{product.eyebrow}</div>{active === 'ortho' ? <div className="ortho-visual"><div className="ortho-piece piece-one"/><div className="ortho-piece piece-two"/><div className="ortho-piece piece-three"/></div> : <img className="product-implant-image" src={product.image} alt={`Имплантат SNUCOne ${product.name}`} />}<div className="product-art-footer"><span>SNUCONE / {product.name}</span><span>PRECISE BY DESIGN</span></div></div>
               <div className="product-info"><div className="product-overline">{product.eyebrow}</div><h3>{product.title.split('\n').map((line, i) => <React.Fragment key={line}>{line}{i === 0 && <br/>}</React.Fragment>)}</h3><p>{product.desc}</p><ul>{product.specs.map(s => <li key={s}><Check size={14}/>{s}</li>)}</ul><button onClick={() => goToForm(active === 'ortho' ? 'Формирователи десны' : 'Имплантаты')} className="button button-dark product-order">Запросить прайс-лист <ArrowRight size={16}/></button></div>
             </motion.article></AnimatePresence>
           </div>
