@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, MapPin, Menu, MoveUpRight, Phone, ShieldCheck, Sparkles, X } from 'lucide-react'
@@ -66,6 +66,16 @@ function App() {
   const [phone, setPhone] = useState('')
   const [catalogCategory, setCatalogCategory] = useState('Все позиции')
   const [requestedItem, setRequestedItem] = useState('')
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      }
+    }), { threshold: .12 })
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
   const product = products.find(p => p.id === active)!
   const visibleCatalogItems = catalogCategory === 'Все позиции' ? catalogItems : catalogItems.filter(item => item.category === catalogCategory)
   const phoneValid = phone.replace(/\D/g, '').length >= 9
@@ -195,6 +205,3 @@ function App() {
 }
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>)
-
-const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target) } }), { threshold: .12 })
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
