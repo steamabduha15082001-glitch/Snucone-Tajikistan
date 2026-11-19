@@ -101,7 +101,7 @@ function App() {
       <nav className="nav container">
         <a href="#top" className="brand"><img src="/snuc_logo.png" alt="Snucone" /><span className="brand-divider" /><span className="brand-caption">ОФИЦИАЛЬНЫЙ<br/>ДИСТРИБЬЮТОР</span></a>
         <div className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
-          <a onClick={() => setMenuOpen(false)} href="#about">О системе</a><a onClick={() => setMenuOpen(false)} href="#products">Продукция</a><a onClick={() => setMenuOpen(false)} href="#support">Поддержка</a>
+          <a onClick={() => setMenuOpen(false)} href="#about">О системе</a><a onClick={() => setMenuOpen(false)} href="#catalog">Каталог</a><a onClick={() => setMenuOpen(false)} href="#support">Поддержка</a>
         </div>
         <a className="nav-cta" href="#request">Связаться с нами <ArrowUpRight size={15}/></a>
         <button aria-label="Открыть меню" className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</button>
@@ -117,7 +117,7 @@ function App() {
             <div className="eyebrow"><span className="live-dot"/> DENTAL MARKET <span className="eyebrow-line"/> ТАДЖИКИСТАН</div>
             <h1>Snucone<br/>Tajikistan. <span>Инновации<br className="mobile-break"/> в каждом имплантате.</span></h1>
             <p className="hero-description">Snucone — корейская имплантологическая система, которой доверяют профессионалы. Официально в Таджикистане.</p>
-            <div className="hero-actions"><button onClick={() => goToForm('Имплантаты')} className="button button-dark">Оставить заявку <ArrowRight size={17}/></button><a href="#products" className="button button-glass">Каталог систем <ArrowDown size={16}/></a></div>
+            <div className="hero-actions"><button onClick={() => goToForm('Имплантаты')} className="button button-dark">Оставить заявку <ArrowRight size={17}/></button><a href="#catalog" className="button button-glass">Каталог систем <ArrowDown size={16}/></a></div>
             <div className="hero-note"><span className="note-mark">DM</span><span>Официальный дистрибьютор<br/>в Душанбе и по всему Таджикистану</span></div>
           </motion.div>
           <motion.div className="hero-art" initial={{ opacity: 0, scale: .92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: .1 }}>
@@ -162,7 +162,7 @@ function App() {
           </div>
           <div className="product-foot"><span>ОРИГИНАЛЬНАЯ ПРОДУКЦИЯ SNUCONE</span><span>Подбор системы вместе с вами <ArrowRight size={14}/></span></div>
           <div className="catalog-divider" />
-          <div className="catalog-heading reveal"><div><div className="eyebrow"><span className="live-dot"/> КАТАЛОГ SNUCONE</div><h2>Импланты и протетика.<br/><span>В одной системе.</span></h2><p>Изучите линейку компонентов и отправьте запрос по нужной позиции. Цены на сайте не публикуются.</p></div><span className="catalog-count">{catalogItems.length} ПОЗИЦИЙ</span></div>
+          <div id="catalog" className="catalog-heading reveal"><div><div className="eyebrow"><span className="live-dot"/> КАТАЛОГ SNUCONE</div><h2>Импланты и протетика.<br/><span>В одной системе.</span></h2><p>Изучите линейку компонентов и отправьте запрос по нужной позиции. Цены на сайте не публикуются.</p></div><span className="catalog-count">{catalogItems.length} ПОЗИЦИЙ</span></div>
           <div className="catalog-filters" role="tablist" aria-label="Категории каталога">
             {catalogCategories.map(category => <button key={category} role="tab" aria-selected={catalogCategory === category} className={catalogCategory === category ? 'catalog-filter active' : 'catalog-filter'} onClick={() => setCatalogCategory(category)}>{category}</button>)}
           </div>
