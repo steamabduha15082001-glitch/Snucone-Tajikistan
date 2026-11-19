@@ -33,6 +33,25 @@
 @media(max-width:900px){.implant-profile{grid-template-columns:.7fr 1.3fr}.profile-copy{padding:21px 18px}.profile-copy h3{font-size:18px}}
 @media(max-width:680px){.implant-profiles{grid-template-columns:1fr;gap:10px;margin-top:10px}.implant-profile{min-height:230px;grid-template-columns:.75fr 1.25fr}.profile-art{min-height:230px}.profile-art img{height:195px}.profile-copy{padding:18px 15px}.profile-copy h3{font-size:17px}.profile-copy p{font-size:9px}.implant-profile-note{font-size:8px}}
 
+.system-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:0;margin:0 0 12px;border:1px solid #ffffff16;border-radius:4px;overflow:hidden;background:radial-gradient(ellipse at 15% 0%,#282e25 0%,#1b1f1c 43%,#151716 100%)}
+.system-intro-copy{padding:30px 34px 28px}
+.system-intro-copy .product-overline{color:#c5df83;font-size:8px;letter-spacing:1.25px}
+.system-intro-copy h3{font:500 32px/1.12 Manrope,sans-serif;letter-spacing:-1.2px;color:#f4f5f1;margin:12px 0 14px}
+.system-intro-copy>p{max-width:610px;font-size:11px;line-height:1.8;color:#adb2a9;margin:0 0 9px}
+.system-intro-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.system-intro-tags span{padding:7px 9px;border:1px solid #ffffff1a;border-radius:2px;color:#d4d8cf;font-size:8px;letter-spacing:.3px;background:#ffffff06}
+.system-intro-facts{display:flex;flex-direction:column;justify-content:center;border-left:1px solid #ffffff16;padding:14px 23px}
+.system-fact{padding:12px 0;border-bottom:1px solid #ffffff13}
+.system-fact:last-child{border-bottom:0}
+.system-fact>span{display:block;color:#888f83;font-size:7px;letter-spacing:1.1px;margin-bottom:6px}
+.system-fact strong{display:block;color:#e9eddf;font:500 16px/1.3 Manrope,sans-serif;letter-spacing:-.25px}
+.system-fact small{display:block;margin-top:4px;color:#92988f;font-size:8px;line-height:1.55}
+@media(max-width:900px){.system-intro{grid-template-columns:1.05fr .95fr}.system-intro-copy{padding:25px 24px}.system-intro-copy h3{font-size:28px}.system-intro-facts{padding:12px 17px}}
+@media(max-width:680px){.system-intro{grid-template-columns:1fr}.system-intro-copy{padding:23px 20px}.system-intro-copy h3{font-size:27px}.system-intro-copy>p{font-size:10px}.system-intro-facts{border-left:0;border-top:1px solid #ffffff16;padding:8px 20px}.system-fact{padding:11px 0}.system-fact strong{font-size:15px}.system-fact small{font-size:8px}}
+.about-section .bento-card{height:405px}
+@media(max-width:900px){.about-section .bento-card{height:395px}}
+@media(max-width:680px){.about-section .bento-card{height:395px}}
+
 .catalog-divider{height:1px;background:#ffffff18;margin:61px 0 49px}
 .catalog-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:25px}
 .catalog-heading h2{font:500 39px/1.13 Manrope,sans-serif;letter-spacing:-1.8px;margin:13px 0 9px;color:#f4f5f1}
