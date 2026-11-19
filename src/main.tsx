@@ -10,6 +10,38 @@ const products = [
   { id: 'ortho', name: 'Компоненты', eyebrow: 'PROSTHETIC SOLUTIONS', title: 'Единая система.\nБольше свободы.', desc: 'Ортопедические компоненты, формирователи десны и решения для гибкой работы с системой Snucone.', specs: ['Формирователи десны', 'Трансферы и аналоги', 'Ортопедический набор'], tag: 'Ортопедическая линейка' },
 ]
 
+const catalogCategories = ['Все позиции', 'Имплантаты', 'Наборы', 'Аналоговые компоненты', 'Цифровые компоненты']
+const catalogItems = [
+  { category: 'Имплантаты', name: 'SNUCOne AF+I', type: 'Имплантат', description: 'Линейка имплантатов для разных клинических задач. Диаметры 3,5–6,8 мм, длины 7–20 мм.', image: '/af-plus-i.png' },
+  { category: 'Имплантаты', name: 'SNUCOne AF+II', type: 'Имплантат', description: 'Погружной имплантат с внутренним шестигранником и конусом Морзе 11°. Диаметры 3,5–4,8 мм, длины 7–20 мм.', image: '/af-plus-ii.png' },
+  { category: 'Наборы', name: 'Хирургический набор SNUCONE', type: 'Хирургический набор', description: 'Инструменты для работы с имплантационной системой SNUCONE. Комплектацию уточняйте у специалиста.' },
+  { category: 'Наборы', name: 'Хирургический набор', type: 'Хирургический набор', description: 'Комплект хирургических инструментов для имплантации. Состав и совместимость уточняйте при запросе.' },
+  { category: 'Наборы', name: 'Навигационный набор', type: 'Набор для навигационной хирургии', description: 'Инструменты для навигационного протокола. Доступность и комплектацию подтвердит Dental Market.' },
+  { category: 'Аналоговые компоненты', name: 'Формирователи десны', type: 'Мягкие ткани', description: 'Компоненты для формирования контура мягких тканей вокруг имплантата.' },
+  { category: 'Аналоговые компоненты', name: 'Винт-заглушка для имплантата', type: 'Хирургический компонент', description: 'Заглушка для закрытия внутреннего соединения имплантата на этапе заживления.' },
+  { category: 'Аналоговые компоненты', name: 'Аналог имплантата', type: 'Лабораторный компонент', description: 'Аналог соединения имплантата для изготовления ортопедической конструкции.' },
+  { category: 'Аналоговые компоненты', name: 'Прямой титановый абатмент', type: 'Абатмент', description: 'Титановый абатмент для ортопедической реставрации.' },
+  { category: 'Аналоговые компоненты', name: 'Угловой титановый абатмент', type: 'Абатмент', description: 'Абатмент для коррекции направления ортопедической конструкции.' },
+  { category: 'Аналоговые компоненты', name: 'Временный титановый абатмент', type: 'Временная ортопедия', description: 'Титановый компонент для временной конструкции.' },
+  { category: 'Аналоговые компоненты', name: 'Слепочный трансфер — открытая ложка', type: 'Слепочный компонент', description: 'Трансфер для снятия оттиска методом открытой ложки.' },
+  { category: 'Аналоговые компоненты', name: 'Слепочный трансфер — закрытая ложка', type: 'Слепочный компонент', description: 'Трансфер для снятия оттиска методом закрытой ложки.' },
+  { category: 'Аналоговые компоненты', name: 'Трансфер с уровня винтового абатмента', type: 'Слепочный компонент', description: 'Варианты трансфера для открытой и закрытой ложки.' },
+  { category: 'Аналоговые компоненты', name: 'Титановое основание', type: 'CAD/CAM протетика', description: 'Основание для изготовления индивидуальной ортопедической конструкции.' },
+  { category: 'Аналоговые компоненты', name: 'Приливаемый абатмент для CoCr', type: 'Лабораторный компонент', description: 'Приливаемый компонент для изготовления конструкции из кобальт-хромового сплава.' },
+  { category: 'Аналоговые компоненты', name: 'Мульти-юнит прямой', type: 'Мульти-юнит', description: 'Прямой компонент для ортопедических конструкций с опорой на несколько имплантатов.' },
+  { category: 'Аналоговые компоненты', name: 'Мульти-юнит угловой', type: 'Мульти-юнит', description: 'Угловой компонент для коррекции оси протезирования.' },
+  { category: 'Аналоговые компоненты', name: 'Шаровидный абатмент', type: 'Съемное протезирование', description: 'Абатмент для фиксации съемной конструкции.' },
+  { category: 'Аналоговые компоненты', name: 'Ретенционные вставки и адаптеры', type: 'Съемное протезирование', description: 'Комплектующие для ортопедических конструкций на шаровидных абатментах.' },
+  { category: 'Аналоговые компоненты', name: 'Компоненты для винтового абатмента', type: 'Винтовая фиксация', description: 'Титановые цилиндры, аналоги, адаптеры и фиксирующие винты.' },
+  { category: 'Аналоговые компоненты', name: 'Цилиндры мульти-юнит', type: 'Мульти-юнит', description: 'Временные и титановые цилиндры, включая вариант с окном.' },
+  { category: 'Аналоговые компоненты', name: 'Защитный колпачок мульти-юнит', type: 'Мульти-юнит', description: 'Защитный компонент для ортопедического протокола на мульти-юнитах.' },
+  { category: 'Цифровые компоненты', name: '3D аналог имплантата', type: 'Цифровая лаборатория', description: 'Цифровой аналог для CAD/CAM проектирования ортопедической конструкции.' },
+  { category: 'Цифровые компоненты', name: 'Скан-боди с уровня имплантата', type: 'Цифровой слепок', description: 'Скан-маркер для передачи положения имплантата в цифровой рабочий процесс.' },
+  { category: 'Цифровые компоненты', name: 'Скан-маркер мульти-юнита', type: 'Цифровой слепок', description: 'Маркер для сканирования мульти-юнитного соединения.' },
+  { category: 'Цифровые компоненты', name: 'Титановые основания CAD/CAM', type: 'Цифровая лаборатория', description: 'Титановые основания для изготовления индивидуальных реставраций.' },
+  { category: 'Цифровые компоненты', name: 'Цифровые компоненты мульти-юнит', type: 'Мульти-юнит CAD/CAM', description: 'Прямые и угловые абатменты, аналоги, защитные колпачки и цилиндры для цифрового протокола.' },
+]
+
 function Implant({ small = false }: { small?: boolean }) {
   return <div className={`implant-wrap ${small ? 'implant-small' : ''}`} aria-label="Графическая модель дентального имплантата">
     <div className="implant-glow" />
@@ -32,7 +64,10 @@ function App() {
   const [formError, setFormError] = useState('')
   const [sending, setSending] = useState(false)
   const [phone, setPhone] = useState('')
+  const [catalogCategory, setCatalogCategory] = useState('Все позиции')
+  const [requestedItem, setRequestedItem] = useState('')
   const product = products.find(p => p.id === active)!
+  const visibleCatalogItems = catalogCategory === 'Все позиции' ? catalogItems : catalogItems.filter(item => item.category === catalogCategory)
   const phoneValid = phone.replace(/\D/g, '').length >= 9
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -55,6 +90,10 @@ function App() {
   const goToProduct = (id: string) => {
     setActive(id)
     document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' })
+  }
+  const requestCatalogItem = (name: string, category: string) => {
+    setRequestedItem(name)
+    goToForm(category === 'Имплантаты' ? 'Имплантаты' : category === 'Наборы' ? 'Хирургические наборы' : 'Протетика')
   }
 
   return <>
@@ -122,6 +161,18 @@ function App() {
             </motion.article></AnimatePresence>
           </div>
           <div className="product-foot"><span>ОРИГИНАЛЬНАЯ ПРОДУКЦИЯ SNUCONE</span><span>Подбор системы вместе с вами <ArrowRight size={14}/></span></div>
+          <div className="catalog-divider" />
+          <div className="catalog-heading reveal"><div><div className="eyebrow"><span className="live-dot"/> КАТАЛОГ SNUCONE</div><h2>Импланты и протетика.<br/><span>В одной системе.</span></h2><p>Изучите линейку компонентов и отправьте запрос по нужной позиции. Цены на сайте не публикуются.</p></div><span className="catalog-count">{catalogItems.length} ПОЗИЦИЙ</span></div>
+          <div className="catalog-filters" role="tablist" aria-label="Категории каталога">
+            {catalogCategories.map(category => <button key={category} role="tab" aria-selected={catalogCategory === category} className={catalogCategory === category ? 'catalog-filter active' : 'catalog-filter'} onClick={() => setCatalogCategory(category)}>{category}</button>)}
+          </div>
+          <div className="catalog-grid">
+            {visibleCatalogItems.map((item, index) => <article className="catalog-item" key={item.name}>
+              <div className="catalog-item-art">{item.image ? <img src={item.image} alt={item.name} /> : <div className="catalog-symbol"><span>{String(index + 1).padStart(2, '0')}</span><i/><i/><i/></div>}<span className="catalog-item-type">{item.type}</span></div>
+              <div className="catalog-item-copy"><div className="catalog-item-category">{item.category}</div><h3>{item.name}</h3><p>{item.description}</p><button onClick={() => requestCatalogItem(item.name, item.category)} className="catalog-request">Уточнить наличие <ArrowUpRight size={15}/></button></div>
+            </article>)}
+          </div>
+          <p className="catalog-disclaimer">Номенклатура и совместимость представлены для ознакомления. Наличие конкретных размеров и комплектаций подтвердит Dental Market.</p>
         </div>
       </section>
 
@@ -131,7 +182,7 @@ function App() {
 
       <section id="request" className="section request-section">
         <div className="container request-grid"><div className="request-copy reveal"><div className="eyebrow eyebrow-light">03 <span className="eyebrow-line"/> ДЛЯ ВРАЧЕЙ И КЛИНИК</div><h2>Начнем<br/>с <span>разговора.</span></h2><p>Расскажите, что нужно вашей клинике. Наш специалист свяжется с вами и поможет найти подходящее решение.</p><div className="request-direct"><span className="direct-icon"><Phone size={17}/></span><div><small>ПОЗВОНИТЕ НАМ</small><a href="tel:+992000000000">+992 00 000 00 00</a></div><ArrowUpRight size={16}/></div><div className="direct-note">Номер и контакты уточняются у Dental Market</div></div>
-          <div className="form-card reveal"><AnimatePresence mode="wait">{sent ? <motion.div className="success-state" key="success" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}><div className="success-icon"><Check size={24}/></div><div className="eyebrow eyebrow-light">ЗАЯВКА ОТПРАВЛЕНА</div><h3>Спасибо за доверие.</h3><p>Мы получили ваши данные. Специалист Dental Market свяжется с вами в ближайшее время.</p><button className="button button-dark" onClick={() => setSent(false)}>Отправить еще одну <ArrowRight size={16}/></button></motion.div> : <form onSubmit={submit} key="form"><div className="form-header"><div><div className="eyebrow eyebrow-light">ЗАЯВКА СПЕЦИАЛИСТУ</div><h3>Чем мы поможем?</h3></div><span className="form-step">01 / 01</span></div><label className="field-label">Меня интересует<select name="category" id="category" defaultValue="Имплантаты"><option>Имплантаты</option><option>Формирователи десны</option><option>Хирургические наборы</option><option>Вызов презентации в клинику</option><option>Прайс-лист</option></select><ChevronDown className="select-chevron" size={16}/></label><div className="form-row"><label className="field-label">ФИО врача<input name="name" required placeholder="Имя и фамилия" /></label><label className="field-label">Название клиники<input name="clinic" required placeholder="Ваша клиника" /></label></div><div className="form-row"><label className="field-label">Город<select name="city" defaultValue="Душанбе"><option>Душанбе</option><option>Худжанд</option><option>Бохтар</option><option>Куляб</option><option>Другой город</option></select></label><label className="field-label">Телефон<input name="phone" required type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+992 __ ___ __ __" />{phone.length > 0 && !phoneValid && <span className="field-error">Введите корректный номер телефона</span>}</label></div><label className="field-label">Комментарий <textarea name="comment" rows={2} placeholder="Расскажите, что важно для вашей практики" /></label><div className="form-bottom"><span>Нажимая кнопку, вы соглашаетесь на обработку данных</span><button className="button button-dark" type="submit" disabled={sending}>{sending ? 'Отправляем…' : 'Отправить заявку'} <ArrowRight size={16}/></button></div>{formError && <p className="form-error" role="alert">{formError}</p>}</form>}</AnimatePresence></div>
+          <div className="form-card reveal"><AnimatePresence mode="wait">{sent ? <motion.div className="success-state" key="success" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}><div className="success-icon"><Check size={24}/></div><div className="eyebrow eyebrow-light">ЗАЯВКА ОТПРАВЛЕНА</div><h3>Спасибо за доверие.</h3><p>Мы получили ваши данные. Специалист Dental Market свяжется с вами в ближайшее время.</p><button className="button button-dark" onClick={() => setSent(false)}>Отправить еще одну <ArrowRight size={16}/></button></motion.div> : <form onSubmit={submit} key="form"><div className="form-header"><div><div className="eyebrow eyebrow-light">ЗАЯВКА СПЕЦИАЛИСТУ</div><h3>Чем мы поможем?</h3></div><span className="form-step">01 / 01</span></div><label className="field-label">Меня интересует<select name="category" id="category" defaultValue="Имплантаты"><option>Имплантаты</option><option>Протетика</option><option>Формирователи десны</option><option>Хирургические наборы</option><option>Вызов презентации в клинику</option><option>Прайс-лист</option></select><ChevronDown className="select-chevron" size={16}/></label>{requestedItem && <div className="requested-item"><span>ЗАПРАШИВАЕМАЯ ПОЗИЦИЯ</span><strong>{requestedItem}</strong><input type="hidden" name="product" value={requestedItem}/></div>}<div className="form-row"><label className="field-label">ФИО врача<input name="name" required placeholder="Имя и фамилия" /></label><label className="field-label">Название клиники<input name="clinic" required placeholder="Ваша клиника" /></label></div><div className="form-row"><label className="field-label">Город<select name="city" defaultValue="Душанбе"><option>Душанбе</option><option>Худжанд</option><option>Бохтар</option><option>Куляб</option><option>Другой город</option></select></label><label className="field-label">Телефон<input name="phone" required type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+992 __ ___ __ __" />{phone.length > 0 && !phoneValid && <span className="field-error">Введите корректный номер телефона</span>}</label></div><label className="field-label">Комментарий <textarea name="comment" rows={2} placeholder="Расскажите, что важно для вашей практики" /></label><div className="form-bottom"><span>Нажимая кнопку, вы соглашаетесь на обработку данных</span><button className="button button-dark" type="submit" disabled={sending}>{sending ? 'Отправляем…' : 'Отправить заявку'} <ArrowRight size={16}/></button></div>{formError && <p className="form-error" role="alert">{formError}</p>}</form>}</AnimatePresence></div>
         </div>
       </section>
     </main>
